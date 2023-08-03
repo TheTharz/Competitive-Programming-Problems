@@ -35,13 +35,26 @@ int main(){
 
   //using different data structure for improve the search
 
-  unordered_map<string,int> words;
+  //map
+  /* unordered_map<string,int> words;
   while(iss>>s){
     if(words.find(s) != words.end()){
       cout << "no" << endl;
       return 0;
     }else{
       words[s] = 1;
+    }
+  }
+  cout << "yes" << endl; */
+
+  //set
+  unordered_set<string> words;
+  while(iss>>s){
+    if(words.find(s) != words.end()){
+      cout << "no" << endl;
+      return 0;
+    }else{
+      words.insert(s);
     }
   }
   cout << "yes" << endl;
