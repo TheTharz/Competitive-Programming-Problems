@@ -2,6 +2,7 @@
 #include <string>
 #include <sstream>
 #include <vector>
+#include <unordered_map>
 
 using namespace std;
 
@@ -13,12 +14,13 @@ int main(){
   istringstream iss(line);
   bool flag = true;
 
-  vector<string> words;
+
+  //using two for loops and vectors
+  /* vector<string> words;
 
   while(iss >> s){
     words.push_back(s);
   }
-
   for(int i=0; i<words.size(); i++){
     for(int j=i+1; j<words.size(); j++){
       if(words[j]==words[i]){
@@ -28,7 +30,19 @@ int main(){
   }
   }
 
-  cout << "yes" << endl;
+  cout << "yes" << endl; */
 
+  //using different data structure for improve the search
+
+  unordered_map<string,int> words;
+  while(iss>>s){
+    if(words.find(s) != words.end()){
+      cout << "no" << endl;
+      return 0;
+    }else{
+      words[s] = 1;
+    }
+  }
+  cout << "yes" << endl;
   return 0;
 }
