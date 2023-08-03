@@ -1,16 +1,24 @@
 #include <iostream>
 #include <cstring>
+#include <vector>
 using namespace std;
 int main(){
-  int n;
+  vector<int> inputs;
   while(true){
+    int n;
     cin >> n;
     if(n==-1){
       break;
     }else{
-      int arr[8][n+1];
-  memset(arr, 0, sizeof(arr));
-  arr[7][0] = 1;
+      inputs.push_back(n);
+    }
+  }
+
+  for(int i=0; i<inputs.size(); i++){
+    int n = inputs[i];
+    int arr[8][n+1];
+    memset(arr, 0, sizeof(arr));
+    arr[7][0] = 1;
 
   for(int i = 1; i <= n; i++){
     arr[0][i] += arr[7][i-1];
@@ -30,7 +38,6 @@ int main(){
   }
   cout <<arr[7][n] << endl;
   }
-    }
   
   return 0;
 }
